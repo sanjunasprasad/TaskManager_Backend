@@ -11,11 +11,22 @@ const app = express();
 dotenv.config()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-app.use(cors());
 connectDB();
 
 
 
+// app.use(cors());
+// const allowedOrigins = ['http://localhost:3000'];
+ const allowedOrigins = ['https://task-manager-pink-six.vercel.app']
+app.use(
+  cors({
+    origin: allowedOrigins, 
+    methods: 'GET, PUT, POST, DELETE, PATCH',
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
+    credentials: true 
+  })
+);
 
 
 
@@ -27,8 +38,6 @@ connectDB();
 
 //routes
 app.use('/', userRoute);
-
-
 
 
 
