@@ -17,7 +17,7 @@ connectDB();
 
 // app.use(cors());
 // const allowedOrigins = ['http://localhost:3000'];
- const allowedOrigins = ['https://task-manager-pink-six.vercel.app']
+ const allowedOrigins = ['https://task-manager-pink-six.vercel.app/']
 app.use(
   cors({
     origin: allowedOrigins, 
@@ -27,11 +27,6 @@ app.use(
     credentials: true 
   })
 );
-
-
-
-
-
 
 
 
