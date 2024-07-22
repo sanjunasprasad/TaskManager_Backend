@@ -38,10 +38,11 @@ const corsOptions = {
       callback(new Error('Not allowed by CORS'));
     }
   },
-  methods: 'GET,PUT,POST,DELETE,PATCH',
-  optionsSuccessStatus: 204,
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+  optionsSuccessStatus: 200,
   credentials: true,
 };
+
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
 
