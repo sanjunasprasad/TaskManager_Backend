@@ -12,32 +12,17 @@ app.use(express.urlencoded({ extended: false }))
 connectDB();
 
 // const allowedOrigins = ['http://localhost:3000'];
-//  const allowedOrigins = ['https://task-manager-pink-six.vercel.app/']
-// app.use(
-//   cors({
-//     origin: allowedOrigins, 
-//     methods: 'GET, PUT, POST, DELETE, PATCH',
-//     preflightContinue: false,
-//     optionsSuccessStatus: 204,
-//     credentials: true 
-//   })
-// );
-const allowedOrigins = ['https://task-manager-pink-six.vercel.app'];
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (allowedOrigins.includes(origin) || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-  optionsSuccessStatus: 200,
-  credentials: false,
-};
+ const allowedOrigins = ['https://task-manager-pink-six.vercel.app']
+app.use(
+  cors({
+    origin: allowedOrigins, 
+    methods: 'GET, PUT, POST, DELETE, PATCH',
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
+    credentials: true 
+  })
+);
 
-app.use(cors(corsOptions));
-app.options('*', cors(corsOptions));
 
 //routes
 app.use('/', userRoute);
