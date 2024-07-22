@@ -5,16 +5,11 @@ import cors from 'cors';
 import userRoute from './interfaces/routes/userRoutes.js';
 
 
-
-
 const app = express();
 dotenv.config()
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 connectDB();
-
-
-
 
 // const allowedOrigins = ['http://localhost:3000'];
 //  const allowedOrigins = ['https://task-manager-pink-six.vercel.app/']
@@ -27,8 +22,6 @@ connectDB();
 //     credentials: true 
 //   })
 // );
-
-
 const allowedOrigins = ['https://task-manager-pink-six.vercel.app'];
 const corsOptions = {
   origin: (origin, callback) => {
@@ -40,20 +33,13 @@ const corsOptions = {
   },
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
   optionsSuccessStatus: 200,
-  credentials: true,
+  credentials: false,
 };
 
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
 
-
-
-
 //routes
 app.use('/', userRoute);
-
-
-
-
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
