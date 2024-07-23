@@ -22,6 +22,7 @@ export const generateUserToken = async(existingUser ) => {
 export const decodeToken = async (req, res, next) => {
   try {
       const header = req.headers.authorization;
+      console.log("header in decode token auth:::",header)
       if (!header) {
           return res.status(401).json({ message: 'Authorization header missing' });
       }
@@ -38,6 +39,7 @@ export const decodeToken = async (req, res, next) => {
           req.token = decodedToken;
           next();
       });
+      console.log("token in decode token::",req.token)
   } catch (error) {
       console.error("Error decoding token:", error);
       return res.status(500).json({ message: 'Internal Server Error' });

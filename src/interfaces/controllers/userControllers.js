@@ -120,7 +120,7 @@ export const editTodo = async(req,res) =>{
       { description, status },
       { new: true } 
     );
-    console.log("updatedtodo",updatedTodo)
+    // console.log("updatedtodo",updatedTodo)
     if (!updatedTodo) {
       return res.status(404).json({ message: 'Todo not found' });
     }
