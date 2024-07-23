@@ -1,7 +1,7 @@
 
 # Task Manager App
 
-A brief description of what this project does and who it's for
+This task management application allows users to create, update, and manage tasks within different columns with drag-and-drop functionality. It includes user authentication with email and Google login, and ensures that all tasks have server-side validation. The application features a clean, intuitive user interface built with React, and a robust back end using Node.js and Express, with data stored in a MongoDB database. Additionally, it includes error handling and basic security measures.
 
 
 ## Features
